@@ -51,11 +51,11 @@ process add_existing {
     script:
     if (group == "human")
         """
-        kraken2-build --download-library $group --db $db --no-mask --threads ${task.cpus}
+        k2 download-library --library $group --db $db --no-masking
         """
     else
         """
-        kraken2-build --download-library $group --db $db --threads ${task.cpus}
+        k2 download-library --library $group --db $db
         """
 }
 
